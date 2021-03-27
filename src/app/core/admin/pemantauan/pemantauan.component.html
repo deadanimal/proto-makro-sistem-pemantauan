@@ -1,0 +1,545 @@
+<div class="header pb-6">
+    <div class="container-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-6 col-7">
+                    <h6 class="h2 text-dark d-inline-block mb-0">Pemantauan</h6>
+
+                    <nav aria-label="breadcrumb" class=" d-none d-md-inline-block ml-md-4">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class=" breadcrumb-item">
+                                <a href="javascript:void(0)"> <i class="fa-eye fas ni text-dark"> </i> </a>
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header bg-secondary">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h6 class="text-muted text-uppercase ls-1 mb-1">Carta</h6>
+
+                            <h5 class="h3 mb-0">Status Kemajuan</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="chart">
+                        <div class="amchart" id="cd13"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header bg-secondary">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h6 class="text-muted text-uppercase ls-1 mb-1">Carta</h6>
+
+                            <h5 class="h3 mb-0">Status Projek Am</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="chart">
+                        <div class="amchart" id="cd23"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-8">
+            <div class="card">
+                <div class="card-header bg-secondary">
+                    <div class="col-7">
+                        <h6 class="text-muted text-uppercase ls-1 mb-1">Carta</h6>
+
+                        <h5 class="h3 mb-0">Status Projek</h5>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="chart">
+                        <div class="amchart" id="cd33"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header bg-secondary">
+                    <div class="col">
+                        <h6 class="text-muted text-uppercase ls-1 mb-1"></h6>
+
+                        <h5 class="h3 mb-0">Tarikh Projek</h5>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <ul class=" list-group list-group-flush" data-toggle="checklist">
+                        <li class=" checklist-entry list-group-item flex-column align-items-start py-4 px-4">
+                            <div class=" checklist-item checklist-item-success">
+                                <div class=" checklist-info">
+                                    <h5 class=" checklist-title mb-0">Projek A</h5>
+
+                                    <small> 26/3/2021 </small>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class=" checklist-entry list-group-item flex-column align-items-start py-4 px-4">
+                            <div class=" checklist-item checklist-item-warning">
+                                <div class=" checklist-info">
+                                    <h5 class=" checklist-title mb-0">Projek B</h5>
+
+                                    <small> 31/3/2021 </small>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class=" checklist-entry list-group-item flex-column align-items-start py-4 px-4">
+                            <div class=" checklist-item checklist-item-info">
+                                <div class=" checklist-info">
+                                    <h5 class=" checklist-title mb-0">Projek C</h5>
+
+                                    <small> 10/4/2021 </small>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class=" checklist-entry list-group-item flex-column align-items-start py-4 px-4">
+                            <div class=" checklist-item checklist-item-danger">
+                                <div class=" checklist-info">
+                                    <h5 class=" checklist-title mb-0">Projek D</h5>
+
+                                    <small> 20/4/2021 </small>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header bg-secondary">
+                    <h5 class="h3 mb-0">Senarai</h5>
+                </div>
+                <div class="card-body bg-white">
+                    <div class="dataTables_wrapper py-4">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="dataTables_length" id="datatable_length">
+                                    <label>
+                                        Show
+                                        <select name="datatable_length" aria-controls="datatable"
+                                            class="form-control form-control-sm" (change)="entriesChange($event)">
+                                            <option value="10" [selected]="entries==10">10</option>
+                                            <option value="25" [selected]="entries==25">25</option>
+                                            <option value="50" [selected]="entries==50">50</option>
+                                            <option value="-1" [selected]="entries==-1">All</option>
+                                        </select>
+                                        entries
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div id="datatable_filter" class="dataTables_filter">
+                                    <label>
+                                        <input type="search" class="form-control form-control-sm"
+                                            placeholder="Search records" aria-controls="datatable"
+                                            (keyup)="filterTable($event)" />
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ngx-datatable class="bootstrap selection-cell" [columnMode]="'force'" [headerHeight]="50"
+                            [footerHeight]="50" [rowHeight]="'auto'" [limit]="entries != -1 ? entries:undefined"
+                            [rows]="temp">
+
+                            <ngx-datatable-column>
+                                <ng-template ngx-datatable-header-template>
+                                    <span>Kod Projek</span>
+                                </ng-template>
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    {{row.name}}
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column>
+                                <ng-template ngx-datatable-header-template>
+                                    <span>Nama Projek</span>
+                                </ng-template>
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    {{row.position}}
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column>
+                                <ng-template ngx-datatable-header-template>
+                                    <span>Status (Projek)</span>
+                                </ng-template>
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    {{row.office}}
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column>
+                                <ng-template ngx-datatable-header-template>
+                                    <span>Status Kemajuan</span>
+                                </ng-template>
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    {{row.age}}
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column>
+                                <ng-template ngx-datatable-header-template>
+                                    <span>Status Pelaksanaan</span>
+                                </ng-template>
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    {{row.age}}
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column>
+                                <ng-template ngx-datatable-header-template>
+                                    <span>Sakit</span>
+                                </ng-template>
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    {{row.age}}
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column>
+                                <ng-template ngx-datatable-header-template>
+                                    <span>Tarikh Kemajuan</span>
+                                </ng-template>
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    {{row.age}}
+                                </ng-template>
+                            </ngx-datatable-column>
+                            <ngx-datatable-column>
+                                <ng-template ngx-datatable-header-template>
+                                    <span>View</span>
+                                </ng-template>
+                                <ng-template let-row="row" ngx-datatable-cell-template>
+                                    <a class="btn btn-sm btn-neutral" (click)="lgModal.show()">
+                                        <i class="fas fa-edit text-dark"></i>
+                                    </a>
+                                    <!-- <a class="btn btn-sm btn-success">
+                                        <i class="fas fa-check text-white"></i>
+                                    </a>
+                                    <a class="btn btn-sm btn-warning">
+                                        <i class="fas fa-ban text-white"></i>
+                                    </a> -->
+                                </ng-template>
+                            </ngx-datatable-column>
+                        </ngx-datatable>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="dialog-sizes-name1" class="modal-title pull-left"> View/Edit </h4>
+                <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <tabset #staticTabs>
+                                        <tab heading="Latar belakang">
+                                            <div class="row">
+                                                <br>
+                                                <div class="col-xl-12 mt-4">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Kod Projek</label>
+                                                        <input class="form-control" placeholder=""
+                                                            formControlName="name" type="text">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Nama Projek</label>
+                                                        <input class="form-control" placeholder="Nama projek"
+                                                            formControlName="email" type="text">
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Status (projek)</label>
+                                                        <div class=" custom-control custom-radio mb-3">
+                                                            <input class=" custom-control-input" id="customRadio5"
+                                                                name="custom-radio-1" type="radio" />
+
+                                                            <label class=" custom-control-label" for="customRadio5">
+                                                                Aktif
+                                                            </label>
+                                                        </div>
+
+                                                        <div class=" custom-control custom-radio mb-3">
+                                                            <input class=" custom-control-input" id="customRadio6"
+                                                                name="custom-radio-1" type="radio" />
+
+                                                            <label class=" custom-control-label" for="customRadio6">
+                                                                Tidak aktif
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Status kemajuan</label>
+                                                        <div class=" custom-control custom-radio mb-3">
+                                                            <input class=" custom-control-input" id="dp"
+                                                                name="custom-radio-2" type="radio" />
+
+                                                            <label class=" custom-control-label" for="dp">
+                                                                DP
+                                                            </label>
+                                                        </div>
+
+                                                        <div class=" custom-control custom-radio mb-3">
+                                                            <input class=" custom-control-input" id="bm"
+                                                                name="custom-radio-2" type="radio" />
+
+                                                            <label class=" custom-control-label" for="bm">
+                                                                BM
+                                                            </label>
+                                                        </div>
+                                                        <div class=" custom-control custom-radio mb-3">
+                                                            <input class=" custom-control-input" id="ij"
+                                                                name="custom-radio-2" type="radio" />
+
+                                                            <label class=" custom-control-label" for="ij">
+                                                                IJ
+                                                            </label>
+                                                        </div>
+                                                        <div class=" custom-control custom-radio mb-3">
+                                                            <input class=" custom-control-input" id="dj"
+                                                                name="custom-radio-2" type="radio" />
+
+                                                            <label class=" custom-control-label" for="dj">
+                                                                DJ
+                                                            </label>
+                                                        </div>
+                                                        <div class=" custom-control custom-radio mb-3">
+                                                            <input class=" custom-control-input" id="lj"
+                                                                name="custom-radio-2" type="radio" />
+
+                                                            <label class=" custom-control-label" for="lj">
+                                                                LJ
+                                                            </label>
+                                                        </div>
+                                                        <div class=" custom-control custom-radio mb-3">
+                                                            <input class=" custom-control-input" id="ss"
+                                                                name="custom-radio-2" type="radio" />
+
+                                                            <label class=" custom-control-label" for="ss">
+                                                                SS
+                                                            </label>
+                                                        </div>
+                                                        <div class=" custom-control custom-radio mb-3">
+                                                            <input class=" custom-control-input" id="sp"
+                                                                name="custom-radio-2" type="radio" />
+
+                                                            <label class=" custom-control-label" for="sp">
+                                                                SP
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button class=" btn btn-default" type="button" class="btn btn-warning"
+                                                    (click)="lgModal.hide()">
+                                                    Back
+                                                </button>
+                                                <button class=" btn btn-default text-right" type="button"
+                                                    class="btn btn-success" (click)="selectTab(1)">
+                                                    Next
+                                                </button>
+                                            </div>
+                                        </tab>
+                                        <tab heading="Masa">
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-xl-12">
+
+                                                    <div class="chart">
+                                                        <div class="amchart" id="cd9"></div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Tempoh pelaksanaan</label>
+                                                        <input class="form-control" placeholder="Bulan"
+                                                            formControlName="email" type="text">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Tarikh pelaksanaan</label>
+                                                        <input type="date" class="form-control" required=""
+                                                            placeholder="01/01/2021">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class=" btn btn-default" type="button" class="btn btn-warning"
+                                                (click)="selectTab(1)">
+                                                Back
+                                            </button>
+                                            <button class=" btn btn-default text-right" type="button"
+                                                class="btn btn-success" (click)="selectTab(2)">
+                                                Next
+                                            </button>
+                                        </tab>
+                                        <tab heading="Projek Sakit">
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-xl-12 mt-4">
+                                                    <div class="form-group">
+                                                        <form>
+                                                            <label class="form-control-label">Status Sakit</label>
+                                                            <select class=" form-control" data-toggle="select"
+                                                                id="selectr">
+                                                                <option value="alerts"> Sakit </option>
+                                                                <option value="badges"> Tidak sakit </option>
+                                                            </select>
+                                                        </form>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Catatan masalah</label>
+                                                        <textarea class=" form-control" id="exampleFormControlTextarea1"
+                                                            rows="3"></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Cadangan tindakan</label>
+                                                        <textarea class=" form-control" id="exampleFormControlTextarea1"
+                                                            rows="3"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class=" btn btn-default" type="button" class="btn btn-warning"
+                                                (click)="selectTab(2)">
+                                                Back
+                                            </button>
+                                            <button class=" btn btn-default text-right" type="button"
+                                                class="btn btn-success" (click)="selectTab(3)">
+                                                Next
+                                            </button>
+                                        </tab>
+                                        <tab heading="Penilaian Outcome">
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    <label class="form-control-label">Sasaran Awal</label><br>
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Bilangan pengunjung</label>
+                                                        <input class="form-control" placeholder=""
+                                                            formControlName="name" type="text">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Tarikh pewartaan pemetaan
+                                                            pelancongan negeri</label>
+                                                        <input type="date" class="form-control" required=""
+                                                            placeholder="01/01/2021">
+                                                    </div>
+                                                    <label class="form-control-label">Sasaran Sebenar</label><br>
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Bilangan pengunjung</label>
+                                                        <input class="form-control" placeholder=""
+                                                            formControlName="name" type="text">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Tarikh pewartaan pemetaan
+                                                            pelancongan negeri</label>
+                                                        <input type="date" class="form-control" required=""
+                                                            placeholder="01/01/2021">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class=" btn btn-default" type="button" class="btn btn-warning"
+                                                (click)="selectTab(3)">
+                                                Back
+                                            </button>
+                                            <button class=" btn btn-default text-right" type="button"
+                                                class="btn btn-success">
+                                                Submit
+                                            </button>
+                                        </tab>
+                                        <!-- <tab heading="Schedule">
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-xl-12 mt-4">
+                                            <div class=" form-group">
+                                                <textarea
+                                                    class=" form-control"
+                                                    id="exampleFormControlTextarea3"
+                                                    rows="9"
+                                                ></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div class="input-group mb-3">
+                                                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                <div class="input-group-append">
+                                                  <button class="btn btn-outline-primary" type="button" id="button-addon2">Button</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tab> -->
+                                    </tabset>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!-- <button 
+        class=" btn btn-default" 
+        type="button" 
+        class="btn btn-success"
+        (click)="successSwal()"
+        >
+            Submit
+        </button>
+        <button 
+            class=" btn btn-default" 
+            type="button" 
+            class="btn btn-warning"
+            (click)="confirm()"
+        >
+            Reject
+        </button>
+        <button 
+            class=" btn btn-default" 
+            type="button" 
+            class="btn btn-danger"
+            (click)="confirm()"
+        >
+            Freeze Account
+        </button> -->
+                <button class=" btn btn-link ml-auto" data-dismiss="modal" type="button" (click)="lgModal.hide()">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
